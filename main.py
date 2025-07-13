@@ -140,15 +140,94 @@ lista.remover_paciente('Supla')
 lista.listar_pacientes()
 
 """
+"""
+Dia - 03
+#criando o nó
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
 
-
-
-
-
-
-
-
-
-
-
+class Produto():
+    def __init__(self,id,nome,preco,quantidade):
+        self.id = id
+        self.nome = nome
+        self.preco = preco
+        self.quantidade = quantidade
     
+    def __str__(self):
+        return f'Id - {self.id} | Nome - {self.nome} | Preco - {self.preco} | Quantidade - {self.quantidade}'
+
+class ListaDeProdutos():
+    def __init__(self):
+        self.head = None 
+        self.tail = None
+        self.size = 0
+    
+    #retorna o tamanho da Lista
+    def __len__(self):
+        return self.size
+    
+    def listar_produtos(self):
+        pointer = self.head 
+        while(pointer):
+            print(pointer.data)
+            pointer = pointer.next
+
+    def append(self,produto):
+        novo_node = Node(produto)
+        if self.head:
+            #inserir quando a lista já possui elementos
+            novo_node.prev = self.tail
+            self.tail.next = novo_node
+            self.tail = novo_node     
+        else:
+            #primeiro elemento
+            self.head = novo_node
+            self.tail = novo_node
+        self.size = self.size +1
+    
+    def remover_produto(self,id):
+        #primeiro head
+        if self.head and self.head.data.id == id:
+            self.head = self.head.next
+            self.size -= 1
+            return
+        pointer = self.head
+        while pointer and pointer.next:
+            if pointer.next.data.id == id:
+                pointer.next = pointer.next.next
+                self.size -= 1
+                return print(f'produto de id {id} removido')
+            pointer = pointer.next
+        raise ValueError(f'{id} não está na lista de produtos')
+    
+    def atualizar_produto(self,id,quantidade):
+        pointer = self.head
+        while pointer:
+            if pointer.data.id == id:
+                nome_produto = pointer.data.nome
+                pointer.data.quantidade = quantidade 
+                print(f' A quantidade de {nome_produto} foi alterada para {quantidade}')
+                return 
+            pointer = pointer.next
+        raise ValueError (f'Produto com Id {id} não foi encontrado')
+
+produto1 = Produto(1,'sabonete',56.5,3)
+produto2 = Produto(2,'Botijão de gás',123,1)
+produto3 = Produto(3,'detergente',3,1)
+print(produto1)
+
+lista = ListaDeProdutos()
+lista.append(produto1)
+lista.append(produto2)
+lista.append(produto3)
+print(f'tamanho da lista: {len(lista)}')
+lista.listar_produtos()
+lista.remover_produto(2)
+lista.listar_produtos()
+lista.atualizar_produto(1,10)
+lista.listar_produtos()
+
+"""
