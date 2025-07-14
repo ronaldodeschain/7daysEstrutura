@@ -1,4 +1,4 @@
-""" 
+""" Dia 01
 Dia - 01
 class ListaDeCompras:
     def __init__(self):
@@ -20,11 +20,11 @@ class ListaDeCompras:
                 break
         else:
             return print(f"{item} não está na lista") 
-               
+            
     def listar_item(self):
         for item in range((len(self.produtos))):
             print(f'Nome - {self.produtos[item]} | Quantidade - {self.quantidades[item]}')
-             
+            
 novaLista = ListaDeCompras() 
 novaLista.adicionar_item("abacate",2)
 novaLista.adicionar_item("banana",3)
@@ -35,8 +35,7 @@ novaLista.adicionar_item("tomate",0)
 
 novaLista.listar_item()
 """
-
-"""
+""" Dia 02
 Dia - 02
 #criando o nó
 class Node:
@@ -52,7 +51,7 @@ class Paciente:
 
     def __str__(self):
         return f'Nome - {self._nome} | Idade - {self._identificacao} | Estado - {self._estado}'
-   
+
 #lista cadeada onde vão ficar os pacientes
 class ListaDePacientes:
     def __init__(self):
@@ -140,7 +139,7 @@ lista.remover_paciente('Supla')
 lista.listar_pacientes()
 
 """
-"""
+""" Dia 03
 Dia - 03
 #criando o nó
 class Node:
@@ -231,3 +230,46 @@ lista.atualizar_produto(1,10)
 lista.listar_produtos()
 
 """
+
+""" Dia 04
+class Pedido():
+    def __init__(self,id_pedido,nome,mesa,valor):
+        self.id_pedido = id_pedido
+        self.nome = nome
+        self.mesa = mesa
+        self.valor = valor
+    def __str__(self):
+        return f'Id - {self.id_pedido} | Nome - {self.nome} | Mesa - {self.mesa} | Valor - {self.valor}'
+    
+class FilaDePedidos():
+    def __init__(self):
+        self.pedidos = []
+        
+    def adicionar_pedido(self,pedido):
+        self.pedidos.append(pedido)
+
+    def remover_pedido(self):
+        del self.pedidos[0]
+    def listar_pedidos(self):
+        for pedido in range(len(self.pedidos)):
+            print(f'Pedido nº: {self.pedidos[pedido].id_pedido}| Nome: {self.pedidos[pedido].nome} | Mesa: {self.pedidos[pedido].mesa} | Valor: {self.pedidos[pedido].valor}')
+
+fila = FilaDePedidos()
+pedido1 = Pedido(1,'Xis Coração',3,45.6)
+pedido2 = Pedido(2,'Xis Carne',4,32.5)
+pedido3 = Pedido(3,'Bauru 4 Queijos',2,52.5)
+fila.adicionar_pedido(pedido1)
+fila.adicionar_pedido(pedido2)
+fila.adicionar_pedido(pedido3)
+fila.listar_pedidos()
+fila.remover_pedido()
+print('---------')
+fila.listar_pedidos()
+fila.remover_pedido()
+print('-------')
+fila.listar_pedidos()
+"""
+
+
+
+
