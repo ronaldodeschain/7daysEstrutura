@@ -269,7 +269,7 @@ fila.remover_pedido()
 print('-------')
 fila.listar_pedidos()
 """
-
+""" Dia 05
 class Livro():
     def __init__(self,nome,paginas):
         self.nome = nome
@@ -300,12 +300,13 @@ lista.adicionar_livro(livro1)
 lista.adicionar_livro(livro2)
 lista.adicionar_livro(livro3)
 lista.lista_livros()
-
 lista.remover_livro()
 print(f'-----')
 lista.lista_livros()
 print(f'testando a espiada')
 lista.espia_livro()
+"""
+
 
 
 
