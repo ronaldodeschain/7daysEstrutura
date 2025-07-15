@@ -270,6 +270,42 @@ print('-------')
 fila.listar_pedidos()
 """
 
+class Livro():
+    def __init__(self,nome,paginas):
+        self.nome = nome
+        self.paginas = paginas
+    def __str__(self):
+        return f'Nome - {self.nome} | Nº Páginas: {self.paginas}'
+    
+class PilhaDeLivros():
+    def __init__(self):
+        self.pilha = []
+
+    def adicionar_livro(self,livro):
+        self.pilha.append(livro)
+    def remover_livro(self):
+        return print(f'{self.pilha.pop()} foi removido')
+    def espia_livro(self):
+        return print(f'Ultimo livro da lista: {self.pilha[-1]}')
+    def lista_livros(self):
+        print("-> Lista de livros da coleção <-")
+        for livro in self.pilha:
+            print(f'{livro}')
+
+livro1 = Livro('Cronica de gelo',324)
+livro2 = Livro('outro livro de gelo',523)
+livro3 = Livro('aquele do game of thrones',333)
+lista = PilhaDeLivros()
+lista.adicionar_livro(livro1)
+lista.adicionar_livro(livro2)
+lista.adicionar_livro(livro3)
+lista.lista_livros()
+
+lista.remover_livro()
+print(f'-----')
+lista.lista_livros()
+print(f'testando a espiada')
+lista.espia_livro()
 
 
 
