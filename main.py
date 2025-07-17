@@ -337,10 +337,10 @@ jogadores.adiciona("Biscoito","10")
 jogadores.listar_jogadores()
 jogadores.remover_jogador("Erasmo")
 """
-
+""" Dia 07
 class Produto:
-    """Classe do produto e seus atributos
-    este é o dado que está sendo armazenado na arvore"""
+    '''Classe do produto e seus atributos
+    este é o dado que está sendo armazenado na arvore'''
     def __init__(self,id,nome,quantidade):
         self.id = id
         self.nome = nome
@@ -357,14 +357,14 @@ class Node:
         self.produto = produto #o produto a ser armazenado
 
 class ArvoreProduto:
-    """Classe da árvore binária que organiza os produtos
-    e seus métodos """
+    '''Classe da árvore binária que organiza os produtos
+    e seus métodos '''
     def __init__(self):
         self.raiz = None 
     
     def adicionar_produto(self,id,nome,quantidade):
-        """Método publico para inserir o produto na arvore 
-        além de iniciar a arvore caso ela esteja vazia"""
+        '''Método publico para inserir o produto na arvore 
+        além de iniciar a arvore caso ela esteja vazia'''
         produto = Produto(id,nome,quantidade)
         #se a arvore estiver vazia, o produto vira a raiz dela
         if self.raiz is None:
@@ -374,8 +374,8 @@ class ArvoreProduto:
             self._adicionar_produto(produto,self.raiz)
 
     def _adicionar_produto(self, produto, node):
-        """Método privado para inserir o novo nó
-        ele navega a arvore comparando o id do produto"""
+        '''Método privado para inserir o novo nó
+        ele navega a arvore comparando o id do produto'''
         #Se o Id for menor, ele vai para a esquerda da arvore
         if produto.id < node.produto.id:
             if node.esquerda is None:
@@ -393,32 +393,32 @@ class ArvoreProduto:
             node.produto = produto  
 
     def buscar_produto(self, id):
-        """método publico para iniciar a busca na arvore"""
+        '''método publico para iniciar a busca na arvore'''
         return self._buscar_produto(id, self.raiz)
 
     def _buscar_produto(self, id, node):
-        """método privado e recursivo que busca na arvore"""
+        '''método privado e recursivo que busca na arvore'''
         # Se node is None ou id igual
         if node is None or node.produto.id == id:
-         return node
+            return node
         #se o id for menor, procura na esquerda da arvore
         elif id < node.produto.id:
-         return self._buscar_produto(id, node.esquerda)
+            return self._buscar_produto(id, node.esquerda)
         #se o id for maior, percorre a da direita
         else:
-         return self._buscar_produto(id, node.direita)
+            return self._buscar_produto(id, node.direita)
         
     def listar_todos_os_produtos(self):
-        """Método para iniciar a listagem de todos os produtos."""
+        '''Método para iniciar a listagem de todos os produtos.'''
         print("------- Lista de Produtos no Estoque -------")
         self._listar_in_order(self.raiz)
         print("------------------------------------------")
 
     def _listar_in_order(self, node):
-        """
+        '''
         Método privado e recursivo que percorre a árvore.
         Isso garante que os produtos sejam listados em ordem crescente de ID.
-        """
+        '''
         if node is not None:
             # 1. Visita a sub-árvore da esquerda
             self._listar_in_order(node.esquerda)
@@ -435,3 +435,5 @@ arvore.adicionar_produto(3,'toalha',42)
 item = arvore.buscar_produto(1)
 
 arvore.listar_todos_os_produtos()
+
+"""
