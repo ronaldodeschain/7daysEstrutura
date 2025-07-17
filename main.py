@@ -306,6 +306,38 @@ lista.lista_livros()
 print(f'testando a espiada')
 lista.espia_livro()
 """
+""" Dia 06
+class ListaJogadores:
+    def __init__(self):
+        self.jogadores = {}
+    
+    def __str__(self):
+        return f'{self.jogadores}'
+    
+    def adiciona(self,nome,pontos):
+        self.jogadores[nome] = pontos
+    def atualizar_jogador(self,nome,pontos):
+        self.jogadores[nome] = pontos
+    def remover_jogador(self,nome):
+        self.jogadores.pop(nome)
+    def listar_jogadores(self):
+        jogadores_ordenados = sorted(self.jogadores.items(),key=lambda x: int(x[1]),reverse=True)
+        maior_pontuacao = 0
+        jogador_vencedor = jogadores_ordenados[0][0]
+        print("-------Tabela de pontos--------")
+        for jogador,pontos in jogadores_ordenados:
+            print(f'Jogador: {jogador} -> {pontos} pontos!')
+        print(f'O vencedor é o: {jogador_vencedor}')
+
+jogadores = ListaJogadores()
+jogadores.adiciona("Erasmo","55")
+jogadores.adiciona("Inigo Montoya","89")
+jogadores.atualizar_jogador("Erasmo","69")
+jogadores.adiciona("Biscoito","10")
+jogadores.listar_jogadores()
+jogadores.remover_jogador("Erasmo")
+"""
+
 
 
 
